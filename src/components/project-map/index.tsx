@@ -4,7 +4,7 @@ import {  technicalList } from './data'
 import classNames from 'classnames'
 import { generateGridTemplateAreas, getColor } from '@/utils/util'
 
-const SkillMap = () => {
+const ProjectMap = () => {
 
   const generateGridItem = useCallback(() => {
 
@@ -44,7 +44,7 @@ const SkillMap = () => {
 
   return (
     <>
-      <div>技能</div>
+    <div>项目</div>
       <div className='grid-container' style={{
         gridTemplateAreas: generateGridTemplateAreas(technicalList)
       }}>
@@ -56,4 +56,4 @@ const SkillMap = () => {
   )
 }
 
-export default SkillMap
+export default ProjectMap

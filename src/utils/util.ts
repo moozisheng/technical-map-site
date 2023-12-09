@@ -1,9 +1,11 @@
+import { IGridDataItem } from "@/types/util";
 import {
   BACKGROUND_COLOR,
   BACKGROUND_COLOR_HOVER,
   BORDER_COLOR,
   BORDER_COLOR_HOVER,
 } from "./constants";
+
 export const getColor = (index: any) => {
   if (index > 0 && index <= 10) {
     return {
@@ -48,4 +50,36 @@ export const getColor = (index: any) => {
       borderColorHover: BORDER_COLOR_HOVER[5],
     };
   }
+};
+
+export const generateGridTemplateAreas = (gridDataSource: IGridDataItem[]) => {
+  const grid_template_areas_arr: any[] = [];
+
+  gridDataSource.forEach((item) => {
+    const gridArea = item.gridArea;
+    const gridAreaArr: string[] = item.gridArea.split("/");
+
+    gridAreaArr.forEach((itemGridArea: string) => {
+      const row = Number(
+        itemGridArea?.match(/r\d+/)?.toString().replace("r", "")
+      );
+      const column = Number(
+        itemGridArea?.match(/c\d+/)?.toString().replace("c", "")
+      );
+      if (grid_template_areas_arr[row] === undefined) {
+        grid_template_areas_arr[row] = [];
+        grid_template_areas_arr[row][column] = [gridArea.replaceAll("/", "-")];
+      } else {
+        grid_template_areas_arr[row][column] = gridArea.replaceAll("/", "-");
+      }
+    });
+  });
+  const grid_template_areas_string = grid_template_areas_arr
+    .map((item) => item.join(" "))
+    .map((item) => '"' + item + '"')
+    .toString()
+    .replaceAll(",", " ");
+  console.log("gridTemplateAreas:", grid_template_areas_string);
+
+  return grid_template_areas_string;
 };
