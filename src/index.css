@@ -28,6 +28,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: url(assets/bg.gif) repeat #0a0a0a !important;
 }
 
 h1 {

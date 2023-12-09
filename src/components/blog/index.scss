@@ -1,0 +1,24 @@
+.blog-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  color: rgba(255, 255, 255, 0.87);
+  font-size: 14px;
+  margin-bottom: 20px;
+
+
+  .blog-item {
+    color: #fff;
+    background-color: rgba(0, 127, 127, 0.5);
+    padding: 6px;
+    font-size: 12px;
+    border-radius: 6px;
+    min-width: 80px;
+    border: 1px solid rgba(127, 255, 255, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+}
