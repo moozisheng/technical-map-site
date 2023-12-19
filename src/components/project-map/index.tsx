@@ -3,7 +3,7 @@ import './index.scss'
 import {  technicalList } from './data'
 import classNames from 'classnames'
 import { generateGridTemplateAreas, getColor } from '@/utils/util'
-import { Button, Popover } from 'antd'
+import { Popover } from 'antd'
 
 const ProjectMap = () => {
 
