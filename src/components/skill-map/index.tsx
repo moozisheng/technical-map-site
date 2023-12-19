@@ -44,7 +44,7 @@ const SkillMap = () => {
 
   return (
     <>
-      <div>技能</div>
+      <div>使用过的技能</div>
       <div className='grid-container' style={{
         gridTemplateAreas: generateGridTemplateAreas(technicalList)
       }}>

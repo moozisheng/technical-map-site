@@ -8,7 +8,7 @@ function App() {
 
   return (
     <div className='app-container'>
-      <h1>mozi 技能图谱</h1>
+      <h1>莫梓盛的技能花园</h1>
       <Blog />
       <SkillMap />
       <ProjectMap />

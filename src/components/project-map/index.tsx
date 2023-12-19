@@ -3,6 +3,7 @@ import './index.scss'
 import {  technicalList } from './data'
 import classNames from 'classnames'
 import { generateGridTemplateAreas, getColor } from '@/utils/util'
+import { Button, Popover } from 'antd'
 
 const ProjectMap = () => {
 
@@ -24,7 +25,12 @@ const ProjectMap = () => {
         element.style.borderColor = getColor(index).borderColor
       }
 
-      return <div className={classNames('grid-item',
+      return  <Popover placement="top" title={item.title} content={<div style={{width: 400}}>
+        <div>{item.description}</div>
+        {item.technologyStack &&  <div>技术栈：{item.technologyStack}</div>}
+        {/* <a>查看更多</a> */}
+      </div>}>
+          <div className={classNames('grid-item',
         item.gridArea.replaceAll('/', '-')
       )}
         key={item.gridArea}
@@ -39,12 +45,13 @@ const ProjectMap = () => {
       >
         {item.title}
       </div>
+        </Popover>
     })
   }, [])
 
   return (
     <>
-    <div>项目</div>
+    <div>负责过的项目</div>
       <div className='grid-container' style={{
         gridTemplateAreas: generateGridTemplateAreas(technicalList)
       }}>
